@@ -58,11 +58,11 @@ export default function App() {
 
       <Banner data={bannerData} />
       <CoupleSection data={coupleSectionData} />
-      <JourneySection data={journeyData} />
 
       <EventsSection data={eventsData} />
       <MuhurthamSection data={muhurthamData} />
       <VenueSection data={venueData} />
+      <JourneySection data={journeyData} />
 
       <GallerySection />
       <MessageFormSection data={messageFormData} />
