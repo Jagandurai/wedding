@@ -1,0 +1,201 @@
+.intro{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #0d0a0a;
+  color: #f4e7c4;
+
+  /* IMPORTANT: makes swipe work on Android + iPhone */
+  touch-action: none;
+  overscroll-behavior: none;
+
+  /* iOS Safari rubber-band / tap delay fixes */
+  -webkit-overflow-scrolling: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.intro-bg{
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.07), transparent 55%),
+              #250808;
+}
+
+.intro-vignette{
+  position:absolute;
+  inset:0;
+  background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,.55) 100%);
+}
+
+.intro-center{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.intro-top{
+  letter-spacing: 6px;
+  font-size: 12px;
+  opacity: .8;
+  text-transform: uppercase;
+}
+
+.intro-main{
+  margin-top: 14px;
+  font-size: clamp(28px, 4vw, 56px);
+  color: #d6b161;
+  letter-spacing: 2px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.intro-hint{
+  margin-top: 10px;
+  font-style: italic;
+  opacity: .75;
+}
+
+.intro-bar{
+  width: min(520px, 86vw);
+  height: 8px;
+  margin: 22px auto 0;
+  border: 1px solid rgba(214,177,97,.35);
+  background: rgba(255,255,255,.03);
+}
+.intro-bar-fill{
+  height: 100%;
+  background: rgba(214,177,97,.75);
+  width: 0%;
+  transition: width 80ms linear;
+}
+
+.intro-percent{
+  margin-top: 10px;
+  letter-spacing: 4px;
+  font-size: 12px;
+  opacity: .7;
+}
+
+/* images (base) */
+.intro-img{
+  position: absolute;
+  bottom: 0;
+  width: min(520px, 70vw);
+  max-height: 80vh;
+  object-fit: contain;
+  z-index: 3;
+  transition: transform 80ms linear;
+  will-change: transform;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.45));
+}
+
+.intro-img.left{ left: 0; }
+.intro-img.right{ right: 0; }
+
+/* Bigger RIGHT image only (desktop/tablet) */
+.intro-img.right.bigRight{
+  width: min(640px, 82vw);
+  max-height: 92vh;
+  bottom: -18px;
+}
+
+/* MOBILE (Android + iPhone) */
+@media (max-width: 720px){
+  .intro-center{
+    /* helps iPhone safe area */
+    padding: calc(18px + env(safe-area-inset-top)) 16px
+             calc(18px + env(safe-area-inset-bottom));
+  }
+
+  .intro-img{
+    width: min(340px, 82vw);
+    max-height: 74vh;
+  }
+
+  .intro-img.right.bigRight{
+    width: min(400px, 92vw);
+    max-height: 82vh;
+    bottom: -18px;
+  }
+}
+
+/* =========================
+   Heart + bubble burst
+   ========================= */
+.burst{
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.burst.show{ opacity: 1; }
+
+.burst-heart{
+  font-size: 46px;
+  color: rgba(214,177,97,.95);
+  text-shadow: 0 10px 30px rgba(0,0,0,.45);
+  animation: heartPop 1100ms ease-out both;
+}
+
+@keyframes heartPop{
+  0%{ transform: scale(.3); opacity: 0; }
+  25%{ transform: scale(1.2); opacity: 1; }
+  100%{ transform: scale(.95); opacity: 0; }
+}
+
+.spark{
+  --x: 0px;
+  --y: -90px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(214,177,97,.9);
+  transform: translate(-50%, -50%);
+  animation: spark 900ms ease-out both;
+}
+
+@keyframes spark{
+  0%{ opacity: 0; transform: translate(-50%, -50%) scale(.35); }
+  18%{ opacity: 1; }
+  100%{ opacity: 0; transform: translate(var(--x), var(--y)) scale(1.2); }
+}
+
+.bubble{
+  --bx: 0px;
+  --by: -120px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid rgba(244,231,196,.55);
+  transform: translate(-50%, -50%);
+  animation: bubble 1200ms ease-out both;
+}
+
+@keyframes bubble{
+  0%{ opacity: 0; transform: translate(-50%, -50%) scale(.4); }
+  20%{ opacity: 1; }
+  100%{ opacity: 0; transform: translate(var(--bx), var(--by)) scale(1.7); }
+}
+
+@media (max-width: 720px){
+  .burst{ top: 56%; }
+  .burst-heart{ font-size: 38px; }
+}

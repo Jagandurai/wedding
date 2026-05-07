@@ -1,0 +1,132 @@
+.formWrap{
+  background: #f7f0e4;
+  padding: 88px 16px 96px;
+  color: #5b3a3a;
+}
+
+.formInner{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.formHead{
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.formEyebrow{
+  letter-spacing: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(91,58,58,.55);
+}
+
+.formTitle{
+  margin: 12px 0 10px;
+  font-size: clamp(28px, 4vw, 46px);
+  letter-spacing: 1.5px;
+  color: #7b1f1f;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.formSub{
+  margin: 0 auto;
+  max-width: 720px;
+  font-style: italic;
+  color: rgba(91,58,58,.65);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.formCard{
+  background: rgba(255,255,255,.95);
+  border: 1px solid rgba(160,120,120,.28);
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.08);
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field label{
+  display:block;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(91,58,58,.72);
+  margin-bottom: 8px;
+}
+
+.field input,
+.field textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(160,120,120,.32);
+  border-radius: 12px;
+  outline: none;
+  font-family: inherit;
+  background: #fff;
+  color: #3e2a2a;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.field textarea{ resize: vertical; min-height: 130px; }
+
+.field input:focus,
+.field textarea:focus{
+  border-color: rgba(123,31,31,.65);
+  box-shadow: 0 0 0 4px rgba(123,31,31,.12);
+}
+
+.field.full{ grid-column: 1 / -1; }
+
+/* error */
+.err{
+  margin-top: 8px;
+  color: #b42318;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* actions (center button) */
+.actions{
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;   /* center button */
+  align-items: center;
+}
+
+.submitBtn{
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(123,31,31,.70);
+  color: #7b1f1f;
+  background: rgba(123,31,31,.03);
+  letter-spacing: 3px;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.submitBtn:hover{
+  background: rgba(123,31,31,.08);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.10);
+}
+
+.submitBtn:disabled{
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 760px){
+  .grid{ grid-template-columns: 1fr; }
+  .formCard{ padding: 20px; }
+}

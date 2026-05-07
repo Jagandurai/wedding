@@ -1,0 +1,105 @@
+:root{
+  --bg: #f6dccf;
+  --paper: #f8e7df;
+  --ink: #2b2b2b;
+  --muted: #6d5f57;
+  --border: rgba(0,0,0,.12);
+}
+
+*{ box-sizing: border-box; }
+body{ margin:0; font-family: Georgia, "Times New Roman", serif; color: var(--ink); background: var(--bg); }
+
+.page{ max-width: 420px; margin: 0 auto; padding: 14px; }
+
+/* HERO */
+.hero{
+  background: #f3ede8;
+  border: 2px solid #b58cff;
+  padding: 26px 18px;
+  margin-bottom: 14px;
+  /* simple floral feel */
+  background-image:
+    radial-gradient(circle at top left, rgba(255,255,255,.6), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,.6), transparent 45%);
+}
+.hero-inner{ text-align:center; }
+.names{ letter-spacing: 3px; margin: 0; font-weight: 500; }
+.amp{ margin: 8px 0; font-size: 18px; color: var(--muted); }
+.btn{
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: white;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn.outline{ background: transparent; }
+
+/* CARDS */
+.card{
+  background: var(--paper);
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.grid2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+.grid2.reverse{ grid-auto-flow: dense; }
+
+.photoTall, .photoWide{
+  position: relative;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: #fff;
+}
+.photoTall img, .photoWide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+.photoTall{ min-height: 200px; }
+.photoWide{ min-height: 170px; }
+
+.monoTag{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+  background: rgba(255,255,255,.85);
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.textBox{
+  padding: 6px 4px;
+}
+.textBox h2{
+  margin: 0 0 8px;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+.textBox p{ margin: 0 0 10px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.small{ font-size: 12px; color: var(--muted); margin: 0; }
+
+.link{
+  font-size: 12px;
+  color: #5a2ea6;
+  text-decoration: underline;
+}
+
+/* FOOTER */
+.footerInvite{
+  background: var(--paper);
+  padding: 22px 14px;
+  text-align:center;
+}
+.footerInvite h2{
+  margin: 0 0 10px;
+  font-size: 14px;
+  letter-spacing: 2px;
+}

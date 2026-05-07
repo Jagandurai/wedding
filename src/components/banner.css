@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "BannerScript";
+  src: local("Comic Sans MS");
+}
+
+.banner{
+  position: relative;
+  width: 100%;
+  height: 100vh;          
+  min-height: 100vh;     
+  overflow: hidden;
+}
+
+.banner-bg{
+  position: absolute;
+  inset: 0;
+  background: center / cover no-repeat url("../assets/banner2.jpg");
+  transform: scale(1.02);
+}
+
+@media (min-width: 992px){
+  .banner-bg{
+    background-image: url("../assets/banner4.jpg");
+  }
+}
+
+@media (min-width: 1400px){
+  .banner-bg{
+    background-image: url("../assets/banner4.jpg");
+  }
+}
+
+.banner-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.25) 40%,
+    rgba(0,0,0,0.60) 75%,
+    rgba(0,0,0,0.75) 100%
+  );
+}
+
+.banner-content{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 24px 16px;
+  color: #fff;
+  transform: translateY(100px);
+}
+
+/* top line */
+.banner-top{
+  font-family: "Cinzel", Georgia, "Times New Roman", serif; 
+  letter-spacing: 3px;
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* couple name */
+.banner-title{
+  margin: 0;
+  line-height: 1;
+  font-weight: 500;
+
+  /* new font style */
+  font-family: "Playfair Display", "Cinzel";
+  font-size: clamp(44px, 7vw, 96px);
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.banner-date{
+  margin-top: 18px;
+  font-family: "Cinzel", Georgia, "Times New Roman", serif;
+  letter-spacing: 2px;
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+/* music button top-right */
+.music-btn{
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: rgba(0,0,0,0.45);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+/* scroll indicator */
+.scroll-indicator{
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(255,255,255,0.8);
+  border-radius: 18px;
+  margin: 26px auto 0;
+  position: relative;
+  opacity: 0.9;
+}
+.scroll-indicator::after{
+  content:"";
+  width: 4px;
+  height: 8px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 4px;
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  animation: wheel 1.2s infinite ease-in-out;
+}
+@keyframes wheel{
+  0%{ transform: translate(-50%, 0); opacity: 1; }
+  100%{ transform: translate(-50%, 12px); opacity: 0; }
+}
