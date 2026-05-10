@@ -102,7 +102,7 @@ export default function ScrollIntro({ data, onOpen }) {
   const rightStart = isMobile ? 140 : 90;
 
   // mobile unchanged, desktop left image stops earlier
-  const leftEnd = isMobile ? -8 : -12;
+  const leftEnd = isMobile ? -8 : -15;
   const rightEnd = isMobile ? 8 : 0;
 
   const leftX = `${leftStart + (leftEnd - leftStart) * progress}%`;

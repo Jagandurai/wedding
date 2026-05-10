@@ -101,8 +101,8 @@
 
 /* Bigger LEFT image only (desktop/tablet) */
 .intro-img.left.bigLeft{
-  width: min(680px, 74vw);
-  max-height: 84vh;
+  width: min(780px, 74vw);
+  max-height: 90vh;
   bottom: -10px;
   transform: scaleX(-1);
 }
