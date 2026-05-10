@@ -9,7 +9,18 @@ import g4 from "../assets/banner2.jpg";
 import g6 from "../assets/banner3.jpg";
 
 export default function GallerySection() {
-  const images = useMemo(() => [g1, g2, g3, g4, g5, g6], []);
+  const images = useMemo(
+    () => [
+      { src: g1, alt: "Gallery 1", posClass: "imgDownSmall" },
+      { src: g2, alt: "Gallery 2", posClass: "" },
+      { src: g3, alt: "Gallery 3", posClass: "" },
+      { src: g4, alt: "Gallery 4", posClass: "imgDownMedium" },
+      { src: g5, alt: "Gallery 5", posClass: "imgDownSmall" },
+      { src: g6, alt: "Gallery 6", posClass: "" },
+    ],
+    []
+  );
+
   const [open, setOpen] = useState(false);
   const [activeSrc, setActiveSrc] = useState("");
 
@@ -23,7 +34,6 @@ export default function GallerySection() {
     setActiveSrc("");
   };
 
-  // ESC to close
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => e.key === "Escape" && closeLightbox();
@@ -41,44 +51,94 @@ export default function GallerySection() {
         </header>
 
         <div className="galleryGrid">
-          {/* Row 1: 1 small + 1 big */}
-          <button className="gItem gSmall" onClick={() => openLightbox(images[0])} type="button">
-            <img src={images[0]} alt="Gallery 1" loading="lazy" />
+          <button
+            className="gItem gSmall"
+            onClick={() => openLightbox(images[0].src)}
+            type="button"
+          >
+            <img
+              src={images[0].src}
+              alt={images[0].alt}
+              className={images[0].posClass}
+              loading="lazy"
+            />
           </button>
 
-          <button className="gItem gLarge" onClick={() => openLightbox(images[1])} type="button">
-            <img src={images[1]} alt="Gallery 2" loading="lazy" />
+          <button
+            className="gItem gLarge"
+            onClick={() => openLightbox(images[1].src)}
+            type="button"
+          >
+            <img
+              src={images[1].src}
+              alt={images[1].alt}
+              className={images[1].posClass}
+              loading="lazy"
+            />
           </button>
 
-          {/* Row 2: 4 images */}
-          <button className="gItem" onClick={() => openLightbox(images[2])} type="button">
-            <img src={images[2]} alt="Gallery 3" loading="lazy" />
+          <button
+            className="gItem"
+            onClick={() => openLightbox(images[2].src)}
+            type="button"
+          >
+            <img
+              src={images[2].src}
+              alt={images[2].alt}
+              className={images[2].posClass}
+              loading="lazy"
+            />
           </button>
 
-          <button className="gItem" onClick={() => openLightbox(images[3])} type="button">
-            <img src={images[3]} alt="Gallery 4" loading="lazy" />
+          <button
+            className="gItem"
+            onClick={() => openLightbox(images[3].src)}
+            type="button"
+          >
+            <img
+              src={images[3].src}
+              alt={images[3].alt}
+              className={images[3].posClass}
+              loading="lazy"
+            />
           </button>
 
-          <button className="gItem" onClick={() => openLightbox(images[4])} type="button">
-            <img src={images[4]} alt="Gallery 5" loading="lazy" />
+          <button
+            className="gItem"
+            onClick={() => openLightbox(images[4].src)}
+            type="button"
+          >
+            <img
+              src={images[4].src}
+              alt={images[4].alt}
+              className={images[4].posClass}
+              loading="lazy"
+            />
           </button>
 
-          <button className="gItem" onClick={() => openLightbox(images[5])} type="button">
-            <img src={images[5]} alt="Gallery 6" loading="lazy" />
+          <button
+            className="gItem"
+            onClick={() => openLightbox(images[5].src)}
+            type="button"
+          >
+            <img
+              src={images[5].src}
+              alt={images[5].alt}
+              className={images[5].posClass}
+              loading="lazy"
+            />
           </button>
         </div>
       </div>
 
-      {/* Lightbox */}
       {open ? (
         <div className="lightbox" role="dialog" aria-modal="true" onClick={closeLightbox}>
-        <button
-        className="lbClose"
-        type="button"
-        onClick={closeLightbox}
-        aria-label="Close"
-        >
-        </button>
+          <button
+            className="lbClose"
+            type="button"
+            onClick={closeLightbox}
+            aria-label="Close"
+          ></button>
 
           <img
             className="lightboxImage"

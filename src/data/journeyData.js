@@ -1,28 +1,28 @@
 export const journeyData = {
-  eyebrow: "OUR STORY",
-  title: "JOURNEY OF OUR MARRIAGE",
-  subtitle: "Moments that led us here",
+  eyebrow: "OUR CRAZY JOURNEY",
+  title: "THE STORY BEFORE THE FOREVER",
+  subtitle: "From family visits to forever vibes ✨",
 
   timeline: [
     {
-      date: "2019",
-      title: "We Met",
-      desc: "A simple meeting that became something special.",
+      date: "2025",
+      title: "Groom Visited Bride",
+      desc: "What started as a simple visit turned into endless conversations, shy smiles, happy moments, and a beautiful connection that neither of us expected ❤️",
     },
     {
-      date: "2021",
-      title: "First Trip",
-      desc: "Our first journey together and endless memories.",
+      date: "2025",
+      title: "Bride’s Family Met Groom",
+      desc: "Two families came together with joy, laughter, blessings, and heartfelt conversations, making the bond between us even more special and unforgettable 🤝✨",
     },
     {
-      date: "2024",
+      date: "2025",
       title: "Engagement",
-      desc: "With blessings from our families, we said yes.",
+      desc: "Rings exchanged, hearts locked, and the countdown to forever began 💍",
     },
     {
       date: "2026",
-      title: "Wedding Day",
-      desc: "The beginning of our forever.",
+      title: "Marriage",
+      desc: "Two souls, one beautiful promise, and a lifetime adventure together 👰🤵",
     },
   ],
 };

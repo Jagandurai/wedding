@@ -6,7 +6,6 @@
   overflow: hidden;
 }
 
-/* faint circular watermark like screenshot */
 .eventsWrap::before{
   content:"";
   position:absolute;
@@ -49,7 +48,7 @@
 
 .eventsSub{
   font-style: italic;
-  color: rgba(91,58,58,.65);
+  color: rgba(154, 11, 11, 0.65);
   font-size: 18px;
 }
 
@@ -106,7 +105,7 @@
 
 .eventDate{
   font-size: 18px;
-  color: rgba(91,58,58,.8);
+  color: rgba(142, 8, 8, 0.8);
   font-family: Georgia, "Times New Roman", serif;
   margin-bottom: 10px;
 }

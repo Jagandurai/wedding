@@ -23,8 +23,10 @@ export default function ScrollIntro({ data, onOpen }) {
     const mq = window.matchMedia("(max-width: 720px)");
     const update = () => setIsMobile(mq.matches);
     update();
+
     if (mq.addEventListener) mq.addEventListener("change", update);
     else mq.addListener(update);
+
     return () => {
       if (mq.removeEventListener) mq.removeEventListener("change", update);
       else mq.removeListener(update);
@@ -43,10 +45,10 @@ export default function ScrollIntro({ data, onOpen }) {
     }
   };
 
-  // lock page scroll behind intro (important for iOS)
   useEffect(() => {
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
     return () => {
       document.body.style.overflow = prevOverflow;
     };
@@ -56,7 +58,6 @@ export default function ScrollIntro({ data, onOpen }) {
     const el = introRef.current;
     if (!el) return;
 
-    // Desktop wheel
     const onWheel = (e) => {
       e.preventDefault();
       const delta = e.deltaY;
@@ -68,17 +69,15 @@ export default function ScrollIntro({ data, onOpen }) {
       });
     };
 
-    // iOS/Android touch
     const onTouchStart = (e) => {
       touchStartYRef.current = e.touches?.[0]?.clientY ?? 0;
     };
 
     const onTouchMove = (e) => {
-      // Must be passive:false to allow preventDefault on iOS Safari
       e.preventDefault();
 
       const y = e.touches?.[0]?.clientY ?? 0;
-      const dy = touchStartYRef.current - y; // swipe up => positive
+      const dy = touchStartYRef.current - y;
       touchStartYRef.current = y;
 
       setProgress((p) => {
@@ -101,8 +100,10 @@ export default function ScrollIntro({ data, onOpen }) {
 
   const leftStart = isMobile ? -140 : -90;
   const rightStart = isMobile ? 140 : 90;
-  const leftEnd = isMobile ? -10 : 0;
-  const rightEnd = isMobile ? 18 : 8;
+
+  // mobile unchanged, desktop left image stops earlier
+  const leftEnd = isMobile ? -8 : -12;
+  const rightEnd = isMobile ? 8 : 0;
 
   const leftX = `${leftStart + (leftEnd - leftStart) * progress}%`;
   const rightX = `${rightStart + (rightEnd - rightStart) * progress}%`;
@@ -127,17 +128,17 @@ export default function ScrollIntro({ data, onOpen }) {
       </div>
 
       <img
-        className="intro-img left"
-        src={data.brideImage}
-        alt="Bride"
-        style={{ transform: `translateX(${leftX})` }}
+        className="intro-img left bigLeft"
+        src={data.groomImage}
+        alt="Groom"
+        style={{ transform: `translateX(${leftX}) scaleX(-1)` }}
         draggable={false}
       />
 
       <img
-        className="intro-img right bigRight"
-        src={data.groomImage}
-        alt="Groom"
+        className="intro-img right"
+        src={data.brideImage}
+        alt="Bride"
         style={{ transform: `translateX(${rightX})` }}
         draggable={false}
       />

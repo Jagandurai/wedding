@@ -1,7 +1,7 @@
 export const finalFooterData = {
   flowerRow: ["🌸","🌺","🌼","🌸","🌺","🌼","🌸","🌺","🌼"],
-  leftName: "TAMILARASI",
-  rightName: "AJAY",
+  leftName: "AJAY",
+  rightName: "TAMILARASI",
   heart: "♥",
 
   quoteLines: [

@@ -66,6 +66,7 @@
   border: 1px solid rgba(214,177,97,.35);
   background: rgba(255,255,255,.03);
 }
+
 .intro-bar-fill{
   height: 100%;
   background: rgba(214,177,97,.75);
@@ -98,11 +99,12 @@
 .intro-img.left{ left: 0; }
 .intro-img.right{ right: 0; }
 
-/* Bigger RIGHT image only (desktop/tablet) */
-.intro-img.right.bigRight{
-  width: min(640px, 82vw);
-  max-height: 92vh;
-  bottom: -18px;
+/* Bigger LEFT image only (desktop/tablet) */
+.intro-img.left.bigLeft{
+  width: min(680px, 74vw);
+  max-height: 84vh;
+  bottom: -10px;
+  transform: scaleX(-1);
 }
 
 /* MOBILE (Android + iPhone) */
@@ -118,9 +120,9 @@
     max-height: 74vh;
   }
 
-  .intro-img.right.bigRight{
-    width: min(400px, 92vw);
-    max-height: 82vh;
+  .intro-img.left.bigLeft{
+    width: min(500px, 100vw);
+    max-height: 92vh;
     bottom: -18px;
   }
 }

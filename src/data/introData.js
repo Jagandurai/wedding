@@ -3,8 +3,7 @@ export const introData = {
   groomImage: new URL("../assets/couple2.png", import.meta.url).href,
 
   titleTop: "Scroll to Open",
-  titleMain: "AJAY B &  TAMILARASI D",
+  titleMain: "AJAY &  TAMILARASI",
   hint: "Scroll down to open the invitation",
-  // how much scroll is needed to fully open (pixels)
   scrollDistance: 700,
 };

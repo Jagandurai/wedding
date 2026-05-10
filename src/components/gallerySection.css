@@ -63,12 +63,22 @@
   height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center center;
   transition: transform 600ms ease, filter 600ms ease;
 }
 
 .gItem:hover img{
   transform: scale(1.03);
   filter: grayscale(.2);
+}
+
+/* custom crop position for selected images */
+.imgDownSmall{
+  object-position: center 18% !important;
+}
+
+.imgDownMedium{
+  object-position: center 16% !important;
 }
 
 /* first row */
@@ -168,11 +178,9 @@
   background: rgba(0,0,0,.30);
   color: #fff;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
   font-size: 30px;
   line-height: 0;
